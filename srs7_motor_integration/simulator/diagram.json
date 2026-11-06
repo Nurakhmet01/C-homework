@@ -1,0 +1,302 @@
+{
+  "version": 1,
+  "author": "Serikbai Nurakhmet, BPLA 25-4",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-arduino-uno",
+      "id": "uno",
+      "top": 0,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "sonar",
+      "top": -130,
+      "left": 310,
+      "attrs": {
+        "distance": "70"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 260,
+      "left": 30,
+      "attrs": {
+        "color": "green"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_r",
+      "top": 300,
+      "left": 150,
+      "attrs": {
+        "color": "red",
+        "label": "R D13"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_y",
+      "top": 300,
+      "left": 210,
+      "attrs": {
+        "color": "yellow",
+        "label": "Y D12"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_g",
+      "top": 300,
+      "left": 270,
+      "attrs": {
+        "color": "green",
+        "label": "G D11"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_r",
+      "top": 240,
+      "left": 140,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_y",
+      "top": 240,
+      "left": 200,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_g",
+      "top": 240,
+      "left": 260,
+      "rotate": 90,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "chip-l298n",
+      "id": "driver1",
+      "top": 120,
+      "left": 420,
+      "attrs": {
+        "Vs": "9"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_fwd",
+      "top": 60,
+      "left": 600,
+      "attrs": {
+        "color": "blue",
+        "label": "MOTOR FWD"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_rev",
+      "top": 160,
+      "left": 600,
+      "attrs": {
+        "color": "purple",
+        "label": "MOTOR REV"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_fwd",
+      "top": 40,
+      "left": 540,
+      "rotate": 90,
+      "attrs": {
+        "value": "330"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r_rev",
+      "top": 140,
+      "left": 540,
+      "rotate": 90,
+      "attrs": {
+        "value": "330"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "uno:5V",
+      "sonar:VCC",
+      "red",
+      []
+    ],
+    [
+      "uno:GND.1",
+      "sonar:GND",
+      "black",
+      []
+    ],
+    [
+      "uno:9",
+      "sonar:TRIG",
+      "green",
+      []
+    ],
+    [
+      "uno:10",
+      "sonar:ECHO",
+      "blue",
+      []
+    ],
+    [
+      "uno:2",
+      "btn:1.l",
+      "purple",
+      []
+    ],
+    [
+      "btn:2.l",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:13",
+      "r_r:1",
+      "orange",
+      []
+    ],
+    [
+      "r_r:2",
+      "led_r:A",
+      "orange",
+      []
+    ],
+    [
+      "led_r:C",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:12",
+      "r_y:1",
+      "orange",
+      []
+    ],
+    [
+      "r_y:2",
+      "led_y:A",
+      "orange",
+      []
+    ],
+    [
+      "led_y:C",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:11",
+      "r_g:1",
+      "orange",
+      []
+    ],
+    [
+      "r_g:2",
+      "led_g:A",
+      "orange",
+      []
+    ],
+    [
+      "led_g:C",
+      "uno:GND.2",
+      "black",
+      []
+    ],
+    [
+      "uno:5",
+      "driver1:IN1",
+      "green",
+      []
+    ],
+    [
+      "uno:6",
+      "driver1:IN2",
+      "blue",
+      []
+    ],
+    [
+      "uno:3",
+      "driver1:EN A",
+      "yellow",
+      []
+    ],
+    [
+      "uno:5V",
+      "driver1:5V",
+      "red",
+      []
+    ],
+    [
+      "uno:GND.3",
+      "driver1:GND",
+      "black",
+      []
+    ],
+    [
+      "driver1:OUT1",
+      "r_fwd:1",
+      "blue",
+      []
+    ],
+    [
+      "r_fwd:2",
+      "led_fwd:A",
+      "blue",
+      []
+    ],
+    [
+      "led_fwd:C",
+      "driver1:OUT2",
+      "blue",
+      []
+    ],
+    [
+      "driver1:OUT2",
+      "r_rev:1",
+      "purple",
+      []
+    ],
+    [
+      "r_rev:2",
+      "led_rev:A",
+      "purple",
+      []
+    ],
+    [
+      "led_rev:C",
+      "driver1:OUT1",
+      "purple",
+      []
+    ]
+  ],
+  "dependencies": {
+    "chip-l298n": "github:drf5n/Wokwi-Chip-L298N@1.0.5"
+  }
+}
